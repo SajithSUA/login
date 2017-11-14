@@ -1,0 +1,27 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <div *ngIf="!authService.loggedIn()"> <a class="navbar-brand" href="#">Smart Treading Widgets</a> </div>
+      <div *ngIf="authService.loggedIn()"> <a class="navbar-brand" href="/profile">Home Page</a> </div>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2">
+
+
+      <ul class="nav navbar-nav navbar-right">
+
+        <li *ngIf="!authService.loggedIn()"><a [routerLink]="['/register']">Register</a></li>
+        <li *ngIf="!authService.loggedIn()"><a [routerLink]="['/login']">Login</a></li>
+        <li *ngIf="authService.loggedIn()"><a href="" (click)="logoutUser()" >logout</a></li>
+
+
+      </ul>
+    </div>
+  </div>
+</nav>
